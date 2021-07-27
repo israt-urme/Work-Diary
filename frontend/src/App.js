@@ -8,11 +8,11 @@ function App() {
   
   return (
     <div>
-      <Router>
-        <CustomLayout>
-          <BaseRouter/>
-        </CustomLayout>
-      </Router>
+        <Router>
+          <CustomLayout>
+            <BaseRouter/>
+          </CustomLayout>
+        </Router>
     </div>
     
   );

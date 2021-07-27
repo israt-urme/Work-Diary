@@ -22,6 +22,8 @@ const useStyles = makeStyles((theme) => ({
 function FormInputs(props) {
   const classes = useStyles();
   return (
+    <div>
+      <h3>Place List</h3>
     <List className={classes.root}>
       {props.data.map(list => (
       <ListItem alignItems="flex-start">
@@ -37,7 +39,7 @@ function FormInputs(props) {
               >
                 {list.country} 
               </Typography>
-               - {list.description}
+                - {list.description}
             </React.Fragment>
           }
         />
@@ -45,6 +47,7 @@ function FormInputs(props) {
       ))}
       <Divider variant="inset" component="li" />
     </List>
+    </div>
   );
 }
 

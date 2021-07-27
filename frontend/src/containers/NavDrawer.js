@@ -22,7 +22,6 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import CodeIcon from "@material-ui/icons/Code";
 import FilterVintageIcon from "@material-ui/icons/FilterVintage";
-import ArtTrackIcon from "@material-ui/icons/ArtTrack";
 import AlbumIcon from "@material-ui/icons/Album";
 
 
@@ -155,7 +154,7 @@ function NavDrawer(props) {
             <Divider />
             <List>
               <Link
-                href="https://scrimba.com/playlist/p7P5Hd"
+                href="/"
                 onclick="event.preventDefault()"
                 className={classes.link}
               >
@@ -163,11 +162,11 @@ function NavDrawer(props) {
                   <ListItemIcon>
                     <FilterVintageIcon />
                   </ListItemIcon>
-                  <ListItemText primary={"Learn React"} />
+                  <ListItemText primary={"Home"} />
                 </ListItem>
               </Link>
               <Link
-                href="https://www.w3schools.com/sass/default.php"
+                href="#"
                 onclick="event.preventDefault()"
                 className={classes.link}
               >
@@ -175,11 +174,11 @@ function NavDrawer(props) {
                   <ListItemIcon>
                     <AlbumIcon />
                   </ListItemIcon>
-                  <ListItemText primary={"Learn Sass"} />
+                  <ListItemText primary={"Settings"} />
                 </ListItem>
               </Link>
               <Link
-                href="https://www.w3schools.com/html/default.asp"
+                href="#"
                 onclick="event.preventDefault()"
                 className={classes.link}
               >
@@ -187,19 +186,7 @@ function NavDrawer(props) {
                   <ListItemIcon>
                     <CodeIcon />
                   </ListItemIcon>
-                  <ListItemText primary={"Learn HTML"} />
-                </ListItem>
-              </Link>
-              <Link
-                href="https://www.w3schools.com/css/default.asp"
-                onclick="event.preventDefault()"
-                className={classes.link}
-              >
-                <ListItem button>
-                  <ListItemIcon>
-                    <ArtTrackIcon />
-                  </ListItemIcon>
-                  <ListItemText primary={"Learn CSS"} />
+                  <ListItemText primary={"Logout"} />
                 </ListItem>
               </Link>
             </List>

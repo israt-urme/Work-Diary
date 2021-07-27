@@ -1,7 +1,8 @@
 import { Component } from "react";
 import axios from "axios"
 
-import InputForm from "../components/InputList";
+import InputList from "../components/InputList";
+import InputForm from "../components/InputForm";
 
 class FormContainer extends Component {
   
@@ -24,6 +25,11 @@ class FormContainer extends Component {
     return (
       <div className="container">
         <InputForm
+          requestType="post"
+          diaryID={null}
+          btnText="Save"
+        />
+        <InputList
           data={this.state.diary}
         />
       </div>

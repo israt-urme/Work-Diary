@@ -2,6 +2,8 @@ import { Component } from "react";
 import axios from "axios"
 
 import InputDetails from "../components/InputDetails";
+import InputForm from "../components/InputForm";
+
 class PlaceDetail extends Component {
   
   state = {
@@ -19,6 +21,12 @@ class PlaceDetail extends Component {
     })
   }
 
+  handleDelete(event){
+    const diaryID = this.props.match.params.placeID
+    axios.delete(`http://127.0.0.1:8000/api/main/${diaryID}/`)
+    this.props.history.push('/')
+    this.forceUpdate()
+  }
 
   render() {
     return (
@@ -26,6 +34,14 @@ class PlaceDetail extends Component {
             <InputDetails
             data={this.state.place}
             />
+            <InputForm
+            requestType="put"
+            diaryID={this.props.match.params.placeID}
+            btnText="Update"
+            />
+            <form onSubmit={this.handleDelete}>
+              <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
         </div>
     );
   }
