@@ -1,22 +1,22 @@
 // import InputVar from "./InputVar";
 
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import Divider from '@material-ui/core/Divider';
-import ListItemText from '@material-ui/core/ListItemText';
-import Typography from '@material-ui/core/Typography';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import Divider from "@material-ui/core/Divider";
+import ListItemText from "@material-ui/core/ListItemText";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100%',
-    maxWidth: '36ch',
+    width: "100%",
+    maxWidth: "36ch",
     backgroundColor: theme.palette.background.paper,
   },
   inline: {
-    display: 'inline',
-  },
+    display: "inline",
+  }
 }));
 
 function FormInputs(props) {
@@ -24,29 +24,30 @@ function FormInputs(props) {
   return (
     <div>
       <h3>Place List</h3>
-    <List className={classes.root}>
-      {props.data.map(list => (
-      <ListItem alignItems="flex-start">
-        <ListItemText
-          primary={list.name}
-          secondary={
-            <React.Fragment>
-              <Typography
-                component="span"
-                variant="body2"
-                className={classes.inline}
-                color="textPrimary"
-              >
-                {list.country} 
-              </Typography>
-                - {list.description}
-            </React.Fragment>
-          }
-        />
-      </ListItem>
-      ))}
-      <Divider variant="inset" component="li" />
-    </List>
+      <List className={classes.root}>
+        {props.data.map((list) => (
+          <a class="list" href="/place/1">
+          <ListItem alignItems="flex-start">
+            <ListItemText
+              primary={list.name}
+              secondary={
+                <React.Fragment>
+                  <Typography
+                    component="span"
+                    variant="body2"
+                    className={classes.inline}
+                    color="textPrimary"
+                  >
+                    {list.country}
+                  </Typography>
+                </React.Fragment>
+              }
+            />
+          </ListItem>
+          </a>
+        ))}
+        <Divider variant="inset" component="li" />
+      </List>
     </div>
   );
 }
