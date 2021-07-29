@@ -7,6 +7,7 @@ import ListItem from "@material-ui/core/ListItem";
 import Divider from "@material-ui/core/Divider";
 import ListItemText from "@material-ui/core/ListItemText";
 import Typography from "@material-ui/core/Typography";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,7 +27,7 @@ function FormInputs(props) {
       <h3>Place List</h3>
       <List className={classes.root}>
         {props.data.map((list) => (
-          <a class="list" href="/place/1">
+          <Link key={list.id} className="list" to ={`/place/${list.id}`}>
           <ListItem alignItems="flex-start">
             <ListItemText
               primary={list.name}
@@ -44,7 +45,7 @@ function FormInputs(props) {
               }
             />
           </ListItem>
-          </a>
+          </Link>
         ))}
         <Divider variant="inset" component="li" />
       </List>

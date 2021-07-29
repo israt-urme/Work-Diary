@@ -6,21 +6,21 @@ function NavDrawer(props) {
   return (
     <div>
       <nav
-        class="navbar navbar-dark bg-dark" /*style={{backgroundColor: 'blue'}}*/
+        className="navbar navbar-dark bg-dark" /*style={{backgroundColor: 'blue'}}*/
       >
-        <a class="navbar-brand" href="/">
+        <a className="navbar-brand" href="/">
           DIARY
         </a>
         {props.isAuthenticated ? (
           <Link to="/logout">
-            <button class="btn btn-warning my-2 my-sm-0" type="submit">
+            <button className="btn btn-warning my-2 my-sm-0" type="submit">
               Logout
             </button>
           </Link>
         ) : (
           <Link to="/login">
             <button
-              class="btn my-2 my-sm-0"
+              className="btn my-2 my-sm-0"
               type="submit"
               style={{ background: "sky" }}
             >

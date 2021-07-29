@@ -4,15 +4,16 @@ import axios from "axios"
 import InputDetails from "../components/InputDetails";
 import InputForm from "../components/InputForm";
 
+
 class PlaceDetail extends Component {
-  
+      
   state = {
       place: {}
     }
 
   componentDidMount(){
       const diaryID = this.props.match.params.placeID
-    axios.get(`http://127.0.0.1:8000/api/main/${diaryID}/`)
+      axios.get(`http://127.0.0.1:8000/api/main/${diaryID}/`)
     .then(res => {
       this.setState({
         place: res.data
@@ -27,7 +28,7 @@ class PlaceDetail extends Component {
     this.props.history.push('/')
     this.forceUpdate()
   }
-
+  
   render() {
     return (
         <div className= "container">
@@ -47,4 +48,4 @@ class PlaceDetail extends Component {
   }
 }
 
-export default PlaceDetail;
+export default PlaceDetail
