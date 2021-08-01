@@ -5,12 +5,14 @@ import InputForm from "../components/InputForm";
 
 import {connect} from 'react-redux'
 import { PropTypes } from "prop-types";
-import { getPlaces } from '../store/actions/diary'
+import { getPlaces, deletePlaces } from '../store/actions/diary'
 
 class FormContainer extends Component {
   
   static propTypes = {
-    location: PropTypes.array.isRequired
+    location: PropTypes.array.isRequired,
+    getPlaces: PropTypes.func.isRequired,
+    deletePlaces: PropTypes.func.isRequired
   }
 
   componentDidMount(){
@@ -27,6 +29,7 @@ class FormContainer extends Component {
         />
         <InputList
           data={this.props.location}
+          handleClick={this.props.deletePlaces}
         />
       </div>
     );
@@ -37,5 +40,5 @@ const mapStateToProps = state => ({
   location: state.places.places
 })
 
-export default connect(mapStateToProps, {getPlaces} )(FormContainer);
+export default connect(mapStateToProps, {getPlaces, deletePlaces} )(FormContainer);
 

@@ -21,13 +21,6 @@ class PlaceDetail extends Component {
       console.log(res.data);
     })
   }
-
-  handleDelete(event){
-    const diaryID = this.props.match.params.placeID
-    axios.delete(`http://127.0.0.1:8000/api/main/${diaryID}/`)
-    this.props.history.push('/')
-    this.forceUpdate()
-  }
   
   render() {
     return (
@@ -40,9 +33,6 @@ class PlaceDetail extends Component {
             diaryID={this.props.match.params.placeID}
             btnText="Update"
             />
-            <form onSubmit={this.handleDelete}>
-              <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
         </div>
     );
   }

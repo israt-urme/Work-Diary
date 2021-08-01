@@ -31,7 +31,7 @@ function InputDetails(props) {
           <Typography gutterBottom variant="h5" component="h2">
             {props.data.name}
           </Typography>
-          <Typography variant="p" color="textSecondary" component="p">
+          <Typography variant="h6" color="textSecondary" component="p">
             {props.data.date}
           </Typography>
           <hr/>
