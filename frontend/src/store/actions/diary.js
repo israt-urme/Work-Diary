@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { GET_PLACE, DELETE_PLACE, ADD_PLACE, UPDATE_PLACE } from "./actionTypes";
+import { GET_PLACE, DELETE_PLACE, ADD_PLACE, UPDATE_PLACE, GET_PLACE_ID } from "./actionTypes";
 
 //get places
 export const getPlaces = () => dispatch => {
@@ -10,7 +10,7 @@ export const getPlaces = () => dispatch => {
                 type: GET_PLACE,
                 payload: res.data
             });
-            console.log("action: ", res.data);
+            console.log("action-get: ", res.data);
         }).catch(err=> console.log(err))
 }
 
@@ -36,6 +36,18 @@ export const addPlaces = place => dispatch => {
         }).catch(err=> console.log(err))
 }
 
+//get place by id
+export const getPlacesByID = id => dispatch => {
+    axios.get(`http://127.0.0.1:8000/api/main/${id}/`)
+        .then(res=>{
+            dispatch({
+                type: GET_PLACE_ID,
+                payload: id
+            });
+            console.log("action-get-id: ", id);
+        }).catch(err=> console.log(err))
+}
+
 //update places
 export const updatePlaces = (id, place) => dispatch => {
     axios.put(`http://127.0.0.1:8000/api/main/${id}/`, place)
@@ -44,5 +56,6 @@ export const updatePlaces = (id, place) => dispatch => {
                 type: UPDATE_PLACE,
                 payload: res.data
             });
+            console.log("action-get-place: ", place);
         }).catch(err=> console.log(err))
 }

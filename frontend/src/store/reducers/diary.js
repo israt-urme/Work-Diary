@@ -1,4 +1,4 @@
-import { GET_PLACE, DELETE_PLACE, ADD_PLACE, UPDATE_PLACE } from '../actions/actionTypes'
+import { GET_PLACE, DELETE_PLACE, ADD_PLACE, UPDATE_PLACE, GET_PLACE_ID } from '../actions/actionTypes'
 
 const initialState = {
     places: []
@@ -22,8 +22,17 @@ const Diary = (state=initialState, action) => {
                 ...state,
                 places: [...state.places, action.payload]
             }
+        case GET_PLACE_ID:
+            let place_id = parseInt(action.payload)
+            let placeDetail = state.places.filter(place =>
+                    place.id === place_id)
+            
+            return {
+                ...state,
+                place_by_id: (placeDetail.length>0) ? placeDetail[0]:"urmee"
+            }
         case UPDATE_PLACE:
-            return{
+            return {
                 ...state,
                 places: action.payload
             }

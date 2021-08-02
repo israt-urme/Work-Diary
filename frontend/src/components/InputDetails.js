@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -11,6 +10,9 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
+    marginTop: 20,
+        margin:'auto',
+        flexDirection: 'column',
   },
 });
 
@@ -19,7 +21,7 @@ function InputDetails(props) {
 
   return (
     <Card className={classes.root}>
-      <CardActionArea>
+      <Card>
         <CardMedia
           component="img"
           alt=""
@@ -32,15 +34,15 @@ function InputDetails(props) {
             {props.data.name}
           </Typography>
           <Typography variant="h6" color="textSecondary" component="p">
-            {props.data.date}
+            {props.data.country}
           </Typography>
           <hr/>
           <Typography variant="body2" component="p">
             {props.data.description}
           </Typography>
         </CardContent>
-      </CardActionArea>
-      <CardActions>
+      </Card>
+      <CardActions style={{backgroundColor: "#f0f0f0"}}>
         <Button size="small" color="primary">
           Share
         </Button>

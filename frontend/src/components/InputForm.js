@@ -1,4 +1,5 @@
 import { Component } from "react";
+
 import { connect } from "react-redux";
 import PropTypes from 'prop-types'
 import { addPlaces } from "../store/actions/diary";
@@ -30,6 +31,7 @@ class InputForm extends Component{
     }
 
     handleSubmit(event, requestType, locationID){
+        console.log("type: ", requestType, "id: ", locationID)
 
         event.preventDefault()
 
@@ -63,7 +65,7 @@ class InputForm extends Component{
         const data = this.state
         return(
             <div>
-                <h3>Add Place</h3>
+                <h3>{this.props.title}</h3>
                 <br/>
                 <form onSubmit={(event) => this.handleSubmit(
                     event,

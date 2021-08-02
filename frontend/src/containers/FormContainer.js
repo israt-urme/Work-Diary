@@ -23,6 +23,7 @@ class FormContainer extends Component {
     return (
       <div className="container">
         <InputForm
+          title="ADD PLACE"
           requestType="post"
           locationID={null}
           btnText="Save"
