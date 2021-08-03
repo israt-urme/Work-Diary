@@ -1,7 +1,7 @@
 import { Component } from "react";
 
 import InputList from "../components/InputList";
-import InputForm from "../components/InputForm";
+import AddForm from "./AddForm";
 
 import {connect} from 'react-redux'
 import { PropTypes } from "prop-types";
@@ -22,12 +22,7 @@ class FormContainer extends Component {
   render() {
     return (
       <div className="container">
-        <InputForm
-          title="ADD PLACE"
-          requestType="post"
-          locationID={null}
-          btnText="Save"
-        />
+        <AddForm />
         <InputList
           data={this.props.location}
           handleClick={this.props.deletePlaces}

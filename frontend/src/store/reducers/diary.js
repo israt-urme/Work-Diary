@@ -23,6 +23,7 @@ const Diary = (state=initialState, action) => {
                 places: [...state.places, action.payload]
             }
         case GET_PLACE_ID:
+
             let place_id = parseInt(action.payload)
             let placeDetail = state.places.filter(place =>
                     place.id === place_id)
@@ -34,7 +35,9 @@ const Diary = (state=initialState, action) => {
         case UPDATE_PLACE:
             return {
                 ...state,
-                places: action.payload
+                places: state.places.filter(place => 
+                    place.id !== action.payload.id ? 
+                    action.payload : place)
             }
         default:
             return state

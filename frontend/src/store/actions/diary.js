@@ -56,6 +56,6 @@ export const updatePlaces = (id, place) => dispatch => {
                 type: UPDATE_PLACE,
                 payload: res.data
             });
-            console.log("action-get-place: ", place);
+            console.log("action-update-place: ", res.data);
         }).catch(err=> console.log(err))
 }

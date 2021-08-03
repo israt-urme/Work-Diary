@@ -1,83 +1,15 @@
-import { Component } from "react";
-
-import { connect } from "react-redux";
-import PropTypes from 'prop-types'
-import { addPlaces } from "../store/actions/diary";
-
-import axios from "axios";
-
-class InputForm extends Component{
-
-    state = {
-        name: "",
-        country: "",
-        description: "",
-        visited: "false"
-    }
-    handleChange = this.handleChange.bind(this)
-    handleSubmit = this.handleSubmit.bind(this)
-
-    static propTypes = {
-        addPlaces: PropTypes.func.isRequired
-    }
-
-    handleChange(e){
-
-        const {name, value} = e.target
-
-        this.setState({
-            [name]: value
-        })
-    }
-
-    handleSubmit(event, requestType, locationID){
-        console.log("type: ", requestType, "id: ", locationID)
-
-        event.preventDefault()
-
-        const {name, country, description, visited} = this.state
-
-        const place = {name, country, description, visited}
-
-        if(requestType === 'post'){
-            this.props.addPlaces(place)
-        }
-        else if(requestType === 'put'){
-            axios.put(`http://127.0.0.1:8000/api/main/${locationID}/`, {
-                    name: place.name,
-                    country: place.country,
-                    description: place.description,
-                    visited: place.visited
-                })
-                .then( res => console.log(res))
-                .catch(err => console.log(err))
-        }
-
-        this.setState({
-            name: "",
-            country: "",
-            description: "",
-            visited: "false"
-        })
-        
-    }
-    render(){
-        const data = this.state
-        return(
-            <div>
-                <h3>{this.props.title}</h3>
-                <br/>
-                <form onSubmit={(event) => this.handleSubmit(
-                    event,
-                    this.props.requestType,
-                    this.props.locationID
-                )}>
+function InputForm(props){
+    return (
+        <div>
+            <h3>{props.title}</h3>
+            <br/>
+            <form onSubmit={props.handleSubmit}>
                     <div className="form-row">
                         <div className="form-group col-md-6">
                         <label>Name</label>
                         <input
-                            onChange={this.handleChange}
-                            value={data.name}
+                            onChange={props.handleChange}
+                            value={props.data.name}
                             name="name"
                             className="form-control"
                             placeholder="Enter place name"
@@ -86,8 +18,8 @@ class InputForm extends Component{
                         <div className="form-group col-md-6">
                         <label>Country</label>
                         <input
-                            onChange={this.handleChange} 
-                            value={data.country}
+                            onChange={props.handleChange} 
+                            value={props.data.country}
                             name="country" 
                             className="form-control" 
                             placeholder="Enter country name"/>
@@ -96,8 +28,8 @@ class InputForm extends Component{
                     <div className="form-group">
                         <label>Description</label>
                         <textarea 
-                            onChange={this.handleChange} 
-                            value={data.description} 
+                            onChange={props.handleChange} 
+                            value={props.data.description} 
                             name="description"
                             className="form-control" 
                             rows="3" 
@@ -107,8 +39,8 @@ class InputForm extends Component{
                     <div className="form-group">
                         <div className="form-check">
                         <input
-                            onChange={this.handleChange} 
-                            value={data.visited} 
+                            onChange={props.handleChange} 
+                            value={props.data.visited} 
                             name="visited"
                             className="form-check-input" 
                             type="checkbox"/>
@@ -117,12 +49,11 @@ class InputForm extends Component{
                         </label>
                         </div>
                     </div>
-                    <button className="btn btn-primary">{this.props.btnText}</button>
+                    <button className="btn btn-primary">{props.btnText}</button>
                     <br/><br/><br/>
                 </form>
-            </div>
-        );
-    }
+        </div>
+    )
 }
 
-export default connect(null, { addPlaces })(InputForm)
+export default InputForm
